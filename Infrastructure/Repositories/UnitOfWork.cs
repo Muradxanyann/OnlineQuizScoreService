@@ -62,7 +62,6 @@ namespace Infrastructure.Repositories;
             }
         }
 
-        // Передает (или обнуляет) транзакцию во все репозитории
         private void UpdateTransactionForRepositories()
         {
             (_userResultRepository as DapperUserResultRepository)?.SetTransaction(_transaction);

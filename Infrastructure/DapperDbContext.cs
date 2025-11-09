@@ -17,7 +17,6 @@ public class DapperDbContext
 
     public IDbConnection CreateConnection()
     {
-        // Используем NpgsqlConnection для PostgreSQL
         return new NpgsqlConnection(_connectionString);
     }
 }
