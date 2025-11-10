@@ -48,7 +48,7 @@ builder.Services.AddScoped<IScoringService, ScoringService>();
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 // RabbitMQ Consumer
-//builder.Services.AddHostedService<QuizSubmissionConsumer>();
+builder.Services.AddHostedService<QuizSubmissionConsumer>();
 
 var app = builder.Build();
 

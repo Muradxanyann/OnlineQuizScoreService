@@ -141,6 +141,9 @@ namespace Infrastructure
 
             _connection = factory.CreateConnection("ScoringService");
             _channel = _connection.CreateModel();
+            _channel.ExchangeDeclare(exchange: "quiz_exchange", type: ExchangeType.Direct, durable: true);
+            _channel.QueueDeclare(queue: QueueName, durable: true, exclusive: false, autoDelete: false, arguments: null);
+            _channel.QueueBind(queue: QueueName, exchange: "quiz_exchange", routingKey: "quiz_submitted");
             
             _channel.QueueDeclare(queue: QueueName,
                                 durable: true,
